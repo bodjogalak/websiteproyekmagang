@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE `project` ADD COLUMN `editStatus` ENUM('NONE', 'PENDING', 'REJECTED') NOT NULL DEFAULT 'NONE',
+    ADD COLUMN `pendingData` TEXT NULL;

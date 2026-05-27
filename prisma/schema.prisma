@@ -1,0 +1,198 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// --- ENUMS (The Logic) ---
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum AttendanceStatus {
+  PRESENT
+  LATE
+  LATE_EXCUSED    // Late but approved
+  EARLY_LEAVE     // Left early, unapproved
+  EARLY_EXCUSED   // Left early, approved
+  SICK
+  PERMIT          // Full day permit
+  ABSENT
+  ON_BREAK        // Currently outside (Class/Errand)
+}
+
+enum PermissionType {
+  SICK
+  FULL_DAY_PERMIT
+  LATE_ARRIVAL
+  EARLY_DEPARTURE
+  TEMPORARY_EXIT  // "Izin Keluar"
+}
+
+enum ProjectVisibility {
+  PUBLIC
+  INTERNAL
+  CONFIDENTIAL
+}
+
+// Nomenklatur Resmi Dinas (SOPD)
+enum BidangDinas {
+  E_GOVERNMENT
+  IKP
+  PERSANDIAN
+  SEKRETARIAT
+  UNASSIGNED
+}
+
+// Pekerjaan Teknis / Operasional Magang
+enum PeranMagang {
+  PROGRAMMER
+  MULTIMEDIA
+  CYBER_SECURITY
+  ADMINISTRASI
+  UNASSIGNED
+}
+
+enum EditStatus {
+  NONE
+  PENDING
+  REJECTED
+}
+
+// --- MODELS ---
+
+model User {
+  id            Int      @id @default(autoincrement())
+  email         String   @unique
+  password      String
+  name          String?
+  role          String   @default("USER")
+  faceDescriptor String? @db.Text
+  phone         String?
+  agency        String?
+  
+  avatarUrl     String?  // <--- NEW: Stores Profile Picture Path
+  
+  // ---> INI YANG TERLEWAT: Kolom Penempatan Magang <---
+  bidang         BidangDinas @default(UNASSIGNED)
+  peran          PeranMagang @default(UNASSIGNED)
+
+  createdAt     DateTime @default(now())
+  
+  // Relations
+  application   Application?
+  attendances   Attendance[]
+  permissions   Permission[]
+  projectMembers ProjectMember[]
+}
+
+model Application {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @unique
+  user      User     @relation(fields: [userId], references: [id])
+
+  fullName  String
+  campus    String
+  faculty   String?
+  major     String
+  semester  String
+  
+  startDate DateTime?
+  endDate   DateTime?
+  
+  cvUrl     String?
+  letterUrl String?  // <--- RENAMED (was proposalUrl)
+  
+  status    String   @default("PENDING")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// --- NEW FEATURES ---
+
+model Attendance {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  
+  date      DateTime @default(now()) // Used to query "Today's attendance"
+  
+  checkIn   DateTime?
+  checkOut  DateTime?
+  status    AttendanceStatus @default(ABSENT)
+  
+  // Link to permission (if this attendance was modified by a permit)
+  permissionId Int?
+  permission   Permission? @relation(fields: [permissionId], references: [id])
+
+  // For "Izin Keluar" (Break tracking)
+  breaks    AttendanceBreak[]
+
+  @@unique([userId, date]) // One attendance record per user per day
+}
+
+model AttendanceBreak {
+  id           String     @id @default(cuid())
+  attendanceId Int
+  attendance   Attendance @relation(fields: [attendanceId], references: [id])
+  
+  startTime    DateTime
+  endTime      DateTime?
+  reason       String
+  proofUrl     String?
+
+  status       String     @default("PENDING")
+}
+
+model Permission {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+  
+  type        PermissionType
+  reason      String   @db.Text
+  proofUrl    String?  // Doctor note, etc.
+  
+  status      String   @default("PENDING") // PENDING, APPROVED, REJECTED
+  date        DateTime // The date this applies to
+  
+  createdAt   DateTime @default(now())
+  
+  attendances Attendance[]
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  visibility  ProjectVisibility @default(PUBLIC)
+  
+  repoLink    String?
+  deploymentUrl     String?  // Deployment Link
+  thumbnailUrl  String?
+
+  editStatus    EditStatus @default(NONE)
+  pendingData   String?    @db.Text // Menyimpan data JSON draf perubahan
+  
+  createdAt   DateTime @default(now())
+  members     ProjectMember[]
+}
+
+model ProjectMember {
+  id        String   @id @default(cuid())
+  
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id])
+  
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  
+  role      String? // e.g. "Frontend", "Leader"
+}

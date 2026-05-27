@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+@theme {
+  /* 1. DEFINE YOUR CUSTOM PALETTE 
+     These names (primary, secondary) become available as 
+     bg-primary, text-accent, etc.
+  */
+  --color-primary:   #1193b5;
+  --color-secondary: #95ddeb;
+  --color-accent:    #c3924d;
+  --color-accent2:   #ead4c9;
+  --color-accent3:   #a84353;
+
+  /* 2. THE OVERRIDE TRICK 
+     We redefine "blue" so the existing buttons (bg-blue-600) 
+     automatically adopt your new Teal Primary color.
+  */
+  
+  /* Light backgrounds (was blue-50/100) -> Now Secondary (Light Blue) */
+  --color-blue-50:  #f0fcfd; 
+  --color-blue-100: #dff6fa; 
+
+  /* Main Buttons (was blue-600) -> Now Primary (Teal) */
+  --color-blue-500: #1ca1c4;
+  --color-blue-600: #1193b5; /* <--- Your PRIMARY Color */
+  --color-blue-700: #0e7a96; /* <--- Darker hover state */
+  
+  /* Darker text/borders */
+  --color-blue-800: #0f6178;
+  --color-blue-900: #115163;
+}
+
+
