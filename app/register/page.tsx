@@ -35,7 +35,7 @@ export default function RegisterPage() {
 
       {/* Simple Footer */}
       <footer className="py-6 text-center text-xs text-gray-400">
-        &copy; 2026 DKIPSD Provinsi Sulawesi Utara. All rights reserved.
+        &copy; 2026 Inspektorat Provinsi Sulawesi Utara. All rights reserved.
       </footer>
     </div>
   );
