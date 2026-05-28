@@ -115,7 +115,7 @@ export default async function LandingPage() {
                         <ScrollText size={28} />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-3">Official Certificate</h3>
-                    <p className="text-gray-500 leading-relaxed">Dapatkan sertifikat resmi dari Dinas Kominfo yang valid dan diakui untuk portofolio karier Anda.</p>
+                    <p className="text-gray-500 leading-relaxed">Dapatkan sertifikat resmi dari Inspektorat Daerah Sulut yang valid dan diakui untuk portofolio karier Anda.</p>
                 </div>
             </div>
         </div>
