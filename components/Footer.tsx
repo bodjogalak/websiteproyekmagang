@@ -20,7 +20,7 @@ export default function Footer() {
               />
 
               <h3 className="font-bold text-white leading-tight">
-                Dinas Komunikasi, Informatika, Persandian dan Statistik Daerah<br />
+                Inspektorat Daerah<br />
                 <span className="text-white/80 font-normal text-m">
                   Provinsi Sulawesi Utara
                 </span>
@@ -29,8 +29,7 @@ export default function Footer() {
 
             <p className="text-sm leading-relaxed text-blue-50/80">
               Portal resmi pendaftaran Magang dan Praktik Kerja Lapangan
-              di lingkungan Dinas Komunikasi, Informatika, Persandian,
-              dan Statistik Provinsi Sulawesi Utara.
+              di lingkungan Inspektorat Daerah Provinsi Sulawesi Utara.
             </p>
           </div>
 
@@ -93,7 +92,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="mt-12 pt-6 border-t border-blue-800 text-center text-xs text-blue-50/60">
-          © 2026 Dinas Komunikasi, Informatika, Persandian dan Statistik Daerah
+          © 2026 Inspektorat Daerah
           Provinsi Sulawesi Utara.
         </div>
       </div>

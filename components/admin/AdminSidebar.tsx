@@ -43,7 +43,7 @@ export default function AdminSidebar({ session }: AdminSidebarProps) {
         </div>
         <div>
             <h1 className="font-bold text-lg tracking-wide">Admin Panel</h1>
-            <p className="text-[10px] text-gray-400 uppercase tracking-wider">Diskominfo</p>
+            <p className="text-[10px] text-gray-400 uppercase tracking-wider">Inspektorat</p>
         </div>
       </div>
 

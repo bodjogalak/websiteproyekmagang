@@ -61,7 +61,7 @@ export default function DashboardWrapper({ children }: { children: React.ReactNo
         <div className="h-16 flex items-center px-6 border-b border-gray-100 justify-between md:justify-start shrink-0">
           <div>
             <h1 className="text-xl font-bold text-[#1193b5]">Portal Magang</h1>
-            <p className="text-[10px] text-gray-400">Dinas Kominfo Sulut</p>
+            <p className="text-[10px] text-gray-400">Inspektorat Daerah Sulut</p>
           </div>
           {/* Mobile Close 'X' Button */}
           <button className="md:hidden text-gray-400 hover:text-gray-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>

@@ -71,14 +71,15 @@ export default async function DashboardPage() {
     };
 
     return (
-      <div className="max-w-4xl mx-auto py-10 px-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
-         <div className="mb-8 text-center">
-            <h1 className="text-3xl font-bold text-gray-900">Formulir Pendaftaran Magang</h1>
-            <p className="text-gray-500 mt-2">Lengkapi biodata dan berkas di bawah ini untuk memulai proses seleksi.</p>
-         </div>
-        <ApplicationForm user={userDataForForm} />
-      </div>
-    );
+  <div className="max-w-4xl mx-auto py-10 px-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+     <div className="mb-8 text-center">
+        <h1 className="text-3xl font-bold text-gray-900">Formulir Pendaftaran Magang</h1>
+        <p className="text-gray-500 mt-2">Lengkapi biodata dan berkas di bawah ini untuk memulai proses seleksi.</p>
+     </div>
+    {/* TAMBAHKAN PROPS existingApp DI SINI */}
+    <ApplicationForm user={userDataForForm} existingApp={null} />
+  </div>
+);
   }
 
   // --- KONDISI 2: User DITERIMA (Tampilkan Operational Dashboard) ---

@@ -52,7 +52,7 @@ export default function LoginPage() {
 
         <div className="z-10 mt-10">
           <h1 className="text-3xl xl:text-4xl font-bold mb-4 leading-tight">
-              Portal Magang <br /> Dinas Komunikasi, Informatika, <br /> Persandian dan Statistik Daerah <br /> Provinsi Sulawesi Utara
+              Portal Magang <br /> Inspektorat, <br /> Daerah <br /> Provinsi Sulawesi Utara
             </h1>
           <p className="text-blue-100 text-base xl:text-lg max-w-md">
             Sistem informasi berbasis web untuk mengelola proses pendaftaran, seleksi, dan administrasi magang secara digital.
@@ -60,7 +60,7 @@ export default function LoginPage() {
         </div>
 
         <div className="z-10 text-xs xl:text-sm text-blue-200">
-          &copy; 2026 DKIPSD Sulut. All rights reserved.
+          &copy; 2026 Inspektorat Daerah Sulut. All rights reserved.
         </div>
       </div>
 

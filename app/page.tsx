@@ -56,7 +56,7 @@ export default async function LandingPage() {
           </h1>
           
           <p className="text-xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Apply for internships at Dinas Kominfo Sulut. Gain real-world experience, 
+            Apply for internships at Inspektorat. Gain real-world experience, 
             work on impactful government projects, and build your professional network.
           </p>
           
@@ -108,7 +108,7 @@ export default async function LandingPage() {
                         <Users size={28} />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-3">Expert Mentorship</h3>
-                    <p className="text-gray-500 leading-relaxed">Dibimbing langsung oleh praktisi IT senior dan ASN berpengalaman yang siap berbagi ilmu industri.</p>
+                    <p className="text-gray-500 leading-relaxed">Dibimbing langsung oleh ASN berpengalaman yang siap berbagi ilmu industri.</p>
                 </div>
                 <div className="p-8 rounded-2xl border border-gray-100 bg-white hover:shadow-xl hover:border-green-100 transition duration-300 group">
                     <div className="w-14 h-14 bg-green-100 text-green-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition duration-300">

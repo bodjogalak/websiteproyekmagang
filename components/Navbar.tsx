@@ -31,10 +31,10 @@ export default function Navbar({ hideRegisterBtn = false }: NavbarProps) {
              {/* Teks Dinas (3 Baris) - Tampil di Tablet/PC */}
              <div className="hidden md:flex flex-col justify-center">
                 <span className="text-[10px] font-bold text-gray-700 leading-tight uppercase tracking-wide group-hover:text-black">
-                    Dinas Komunikasi, Informatika,
+                    Inspektorat,
                 </span>
                 <span className="text-[10px] font-bold text-gray-700 leading-tight uppercase tracking-wide group-hover:text-black">
-                    Persandian dan Statistik Daerah
+                    Daerah
                 </span>
                 <span className="text-[10px] font-bold text-[#1193b5] leading-tight uppercase tracking-wide">
                     Provinsi Sulawesi Utara
@@ -44,7 +44,7 @@ export default function Navbar({ hideRegisterBtn = false }: NavbarProps) {
              {/* Teks Mobile (Versi Singkat untuk HP) */}
              <div className="md:hidden flex flex-col">
                 <span className="text-sm font-bold text-[#1193b5]">Portal Magang</span>
-                <span className="text-[10px] text-gray-500">Dinas Kominfo Sulut</span>
+                <span className="text-[10px] text-gray-500">Inspektorat Sulut</span>
              </div>
           </Link>
 

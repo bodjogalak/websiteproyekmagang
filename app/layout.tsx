@@ -15,10 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Portal Magang DKIPSD Sulut", // %s akan diganti title di tiap page
-    default: "Portal Magang DKIPSD Sulut", // Title default jika page tidak punya title khusus
+    template: "%s | Portal Magang Inspektorat Sulut", // %s akan diganti title di tiap page
+    default: "Portal Magang Inspektorat Sulut", // Title default jika page tidak punya title khusus
   },
-  description: "Sistem Pendaftaran Magang Dinas Komunikasi, Informatika, Persandian dan Statistik Sulawesi Utara",
+  description: "Sistem Pendaftaran Magang Inspektorat Sulawesi Utara",
   icons: {
     icon: "/sulut-icon.png", // (Opsional) Cara manual jika cara otomatis di bawah tidak jalan
   },
